@@ -46,7 +46,7 @@ setup(
     packages=find_packages(include=['pbp']),
     entry_points={
         'console_scripts': [
-            'pbp=pbp.cli:main'
+            'pbp=pbp.pbp:main'
         ]
     },
     include_package_data=True,
