@@ -12,16 +12,27 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    'Click>=6.0',
-    # TODO: put package requirements here
+    'click==6.7',
+    'wheel==0.29.0',
+    'urllib3==1.15.1',
+    'pyasn1==0.1.9',
+    'pyOpenSSL==16.2.0',
+    'ndg-httpsclient==0.4.0',
 ]
 
 setup_requirements = [
-    # TODO(somada141): put setup requirements (distutils extensions, etc.) here
+    'tox==2.3.1',
+    'coverage==4.1',
+    'Sphinx==1.4.8',
+    'docutils==0.12',
+    'sphinxcontrib-napoleon==0.6.1',
+    'pytest==3.1.3',
+    'pytest-runner'
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
+    'pytest==3.1.3',
+    'pytest-runner'
 ]
 
 setup(
