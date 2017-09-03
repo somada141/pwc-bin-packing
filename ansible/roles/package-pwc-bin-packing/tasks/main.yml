@@ -1,0 +1,34 @@
+---
+
+- name: Update apt cache.
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+  ignore_errors: true
+
+- name: Install apt dependencies.
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ app_pwc_bin_packing.dependencies_apt }}"
+
+- name: Install system-level Python dependencies
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - pip==9.0.1
+    - setuptools==36.2.7
+
+- name: Install deployment-level pip dependencies not included in a `requirements.txt` within the virtual environment
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ app_pwc_bin_packing.dependencies_pip }}"
+
+- name: Install Python package requirements
+  pip:
+    chdir: "/home/vagrant/pwc-bin-packing"
+    requirements: requirements.txt
+    state: present
+  when: app_pwc_bin_packing.is_vagrant is defined and app_pwc_bin_packing.is_vagrant == True
