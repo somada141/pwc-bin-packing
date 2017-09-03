@@ -235,7 +235,7 @@ class SolverCapacityFirst(SolverBase):
 
 
 class SolverCombo(SolverBase):
-    """Solver focusing on finding the shortest bin-combination.
+    """Solver combining the two objectives.
 
     This class solves the defined problem by evaluating combinations of a length
     n and n + 1 and should an n + 1 combination yield less over-capacity chooses
@@ -288,6 +288,26 @@ class SolverCombo(SolverBase):
 
 
 def create_solver(load, bins, solver_type):
+    """Instantiates a solver of given `solver_type`
+
+    This function iterates over the solver registry and creates a solver for a
+    given `solver_type` with the defined `load` and `bins`.
+
+    Note:
+        Should the defined `solver_type` not be supported by any of the
+        registered classes then `None` is returned.
+
+    Args:
+        load (int): The load to be fit into the bins.
+        bins (tuple, list): The capacities of the bins in which the load will
+            be fitted.
+        solver_type (str, unicode): The type of solver to be used in solving
+            the problem. Can take values of "length", "capacity", and "combo".
+
+    Returns:
+        SolverBase: A derived class supporting the defined `solver_type`
+            instantiated with the given `load` and `bins`.
+    """
 
     # Iterate over the solvers registry and create an instance for the
     # solver with the defined `solver_type` attribute.
