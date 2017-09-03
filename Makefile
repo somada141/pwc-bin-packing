@@ -51,14 +51,14 @@ lint: ## check style with flake8
 	flake8 pbp tests
 
 test: ## run tests quickly with the default Python
-	
-		python setup.py test
+	py.test
+
 
 test-all: ## run tests on every Python version with tox
 	tox
 
 coverage: ## check code coverage quickly with the default Python
-	coverage run --source pbp setup.py test
+	coverage run --source pbp -m pytest
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html
