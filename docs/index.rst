@@ -8,9 +8,7 @@ Contents:
 
    readme
    installation
-   usage
    modules
-   contributing
    history
 
 Indices and tables

@@ -1,0 +1,19 @@
+---
+
+app_pwc_bin_packing:
+
+  dependencies_apt:
+    - git
+    - htop
+    - build-essential
+    - python-dev
+    - python-pip
+    - libxslt1-dev
+    - libxml2-dev
+    - libssl-dev
+    - libffi-dev
+    - python-lxml
+
+  dependencies_pip:
+    - ipython==5.3.0
+

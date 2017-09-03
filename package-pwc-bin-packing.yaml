@@ -1,0 +1,7 @@
+---
+
+- hosts: all
+  sudo: yes
+
+  roles:
+    - { role: package-pwc-bin-packing }
