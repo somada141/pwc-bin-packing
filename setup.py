@@ -14,7 +14,7 @@ with open('HISTORY.rst') as history_file:
 requirements = [
     'click==6.7',
     'wheel==0.29.0',
-    'urllib3==1.15.1',
+    'urllib3==1.24.2',
     'pyasn1==0.1.9',
     'pyOpenSSL==16.2.0',
     'ndg-httpsclient==0.4.0',
